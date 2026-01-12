@@ -269,58 +269,8 @@ const createScrollIndicator = () => {
 // Initialize scroll indicator
 createScrollIndicator();
 
-// ===== Prevent Download Link Error (Update when App Store link is available) =====
-document.querySelectorAll('a[href="#"]').forEach(link => {
-    const linkText = link.textContent.toLowerCase();
-    if (linkText.includes('download') || linkText.includes('app store')) {
-        link.addEventListener('click', (e) => {
-            e.preventDefault();
-
-            // Show a friendly message
-            const message = document.createElement('div');
-            message.style.cssText = `
-                position: fixed;
-                top: 50%;
-                left: 50%;
-                transform: translate(-50%, -50%);
-                background: white;
-                padding: 2rem;
-                border-radius: 1rem;
-                box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
-                z-index: 10000;
-                text-align: center;
-                max-width: 400px;
-                animation: fadeIn 0.3s ease-out;
-            `;
-            message.innerHTML = `
-                <div style="font-size: 3rem; margin-bottom: 1rem;">🚀</div>
-                <h3 style="margin-bottom: 0.5rem; font-size: 1.5rem;">Coming Soon!</h3>
-                <p style="color: #6b7280; margin-bottom: 1.5rem;">
-                    BlockBud is launching soon on the App Store.
-                    Want to be notified? Drop us an email!
-                </p>
-                <a href="mailto:info.krylabs@gmail.com?subject=Notify me when BlockBud launches"
-                   style="display: inline-block; background: linear-gradient(135deg, #6366f1 0%, #8b5cf6 50%, #ec4899 100%);
-                          color: white; padding: 0.75rem 1.5rem; border-radius: 0.5rem;
-                          text-decoration: none; font-weight: 600; margin-right: 0.5rem;">
-                    Notify Me
-                </a>
-                <button onclick="this.parentElement.remove()"
-                        style="background: #f3f4f6; border: none; padding: 0.75rem 1.5rem;
-                               border-radius: 0.5rem; font-weight: 600; cursor: pointer;">
-                    Close
-                </button>
-            `;
-            document.body.appendChild(message);
-
-            // Auto-remove after 5 seconds
-            setTimeout(() => {
-                message.style.animation = 'fadeOut 0.3s ease-out';
-                setTimeout(() => message.remove(), 300);
-            }, 5000);
-        });
-    }
-});
+// ===== Download link is now live on App Store =====
+// The app is live at: https://apps.apple.com/in/app/blockbud-custom-app-blocker/id6753329479
 
 // ===== Console Message =====
 console.log(
